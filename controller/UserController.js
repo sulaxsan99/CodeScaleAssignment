@@ -91,7 +91,7 @@ exports.getAllUser1 = async (req, res) => {
         const users = await userSchema.find({}, 'email weatherData');
         res.status(201).json({
             success: true,
-            user.weatherData
+            users
         })
 
     } catch (error) {
@@ -130,6 +130,7 @@ exports.getUserWeather = async (req, res) => {
         if (!findUser) {
             return res.status(400).json("user not found");
         }
+        const startDate=new Date(req.params.date)
         const weatherData = await userSchema.find({
             _id: userId,
             createdAt: {
