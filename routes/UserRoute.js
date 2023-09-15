@@ -13,8 +13,8 @@ router.get('/',HomeView )
 router.get('/getAllUser',getAllUser1)
 
 
-// const interval = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
-const interval = 60 *1000; 
+const interval = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
+// const interval = 60 *1000; 
 
 setInterval(async () => {
     try {
