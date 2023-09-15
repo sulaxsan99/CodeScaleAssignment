@@ -144,3 +144,23 @@ exports.getUserWeather = async (req, res) => {
         console.log(error)
     }
 }
+exports.getWeatherData = async (req, res) => {
+    try {
+        // const userId = req.params.id;
+        // const findUser = await userSchema.findById(userId)
+        // if (!findUser) {
+        //     return res.status(400).json("user not found");
+        // }
+        const startDate = new Date(req.params.date)
+        const weatherData = await userSchema.find({
+            createdAt: {
+                $gte: new Date(req.params.date),
+                $lt: new Date(startDate.getTime() + 24 * 60 * 60 * 1000),
+            }
+        });
+        res.status(201).json(weatherData)
+    } catch (error) {
+        res.status(400).json({ message: "user  data not find", error })
+        console.log(error)
+    }
+}
