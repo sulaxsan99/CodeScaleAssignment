@@ -86,7 +86,19 @@ exports.getAllUser = async (req, res) => {
 
     }
 }
+exports.getAllUser1 = async (req, res) => {
+    try {
+        const users = await userSchema.find({}, 'email weatherData');
+        res.status(201).json({
+            success: true,
+            users
+        })
 
+    } catch (error) {
+        res.status(400).json({ message: "user data retrive failed", error })
+
+    }
+}
 exports.sendWeatherReport = ({ email, WeatherReport }) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
