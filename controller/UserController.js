@@ -22,9 +22,9 @@ const getweatherDetail = async (location) => {
         throw error;
     }
 }
-exports.HomeView =(req, res) => {
+exports.HomeView = (req, res) => {
     res.status(200).json('Welcome, your app is working well');
-  }
+}
 
 exports.createUser = async (req, res) => {
     try {
@@ -130,7 +130,7 @@ exports.getUserWeather = async (req, res) => {
         if (!findUser) {
             return res.status(400).json("user not found");
         }
-        const startDate=new Date(req.params.date)
+        const startDate = new Date(req.params.date)
         const weatherData = await userSchema.find({
             _id: userId,
             createdAt: {
