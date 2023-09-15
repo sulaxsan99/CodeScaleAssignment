@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json())
 
-app.use('/api/',UserRoute)
+app.use('/',UserRoute)
 
 DbConnection();
 app.listen(8000 || process.env.PORT, () => {

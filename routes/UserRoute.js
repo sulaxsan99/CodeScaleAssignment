@@ -8,8 +8,8 @@ const { createUser, updateUser, getAllUser,getAllUser1, sendWeatherReport, getUs
 router.post('/create', createUser)
 router.put('/update/:id', updateUser)
 router.get('/getUserWeather/:id/:date', getUserWeather)
-router.get('/',getAllUser1)
-router.get('/Home',HomeView)
+router.get('/',HomeView )
+router.get('/Home',getAllUser1)
 
 
 const interval = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
