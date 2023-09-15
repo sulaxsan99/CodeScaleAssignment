@@ -91,7 +91,7 @@ exports.getAllUser1 = async (req, res) => {
         const users = await userSchema.find({}, 'email weatherData');
         res.status(201).json({
             success: true,
-            users
+            user.weatherData
         })
 
     } catch (error) {
